@@ -1,2 +1,2 @@
-#include "Pytorch/torch/script.h"
+#include "torch/script.h"
 #include "PytorchPredictor.h"

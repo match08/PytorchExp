@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
     s.name             = 'Pytorch'
-    s.version          = '0.0.1'
+    s.version          = '0.0.3'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
-    s.source           = { :git => 'git@github.com:xta0/Pytorch-iOS.git' }
+    s.source           = { :git => 'git@github.com:xta0/Pytorch-iOS.git', :tag => s.version }
     s.summary          = 'Pytorch iOS Beta'
     s.description      = <<-DESC
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
