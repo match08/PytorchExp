@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.3'
     s.source_files = 'src/*{.h,.m,.mm,.cpp}', 'install/include/**/*.{h,cpp,cc,c}'
     s.public_header_files = 'src/Pytorch.h'
+    s.header_mappings_dir = 'install/include/'
     s.xcconfig = {
                'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
                  'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
