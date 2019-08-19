@@ -18,10 +18,6 @@ Pod::Spec.new do |s|
         ss.source_files = 'src/*{.h,.m,.hh,.mm}'
         ss.public_header_files = 'src/Pytorch.h'
         ss.library = 'c++'
-        ss.xcconfig = {
-             'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-             'CLANG_CXX_LIBRARY' => 'libc++'
-        }
     end
     
     s.subspec 'API' do |ss|
