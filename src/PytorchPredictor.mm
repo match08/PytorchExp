@@ -3,7 +3,7 @@
 //
 
 #import "PytorchPredictor.h"
-#import "torch/script.h"
+#import "Pytorch.h"
 #import <vector>
 
 #define IMG_W 224

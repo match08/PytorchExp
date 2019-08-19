@@ -1,0 +1,20 @@
+PODS:
+  - Pytorch (0.0.1):
+    - Pytorch/Core (= 0.0.1)
+  - Pytorch/API (0.0.1)
+  - Pytorch/Core (0.0.1):
+    - Pytorch/API
+
+DEPENDENCIES:
+  - Pytorch (from `../../../`)
+
+EXTERNAL SOURCES:
+  Pytorch:
+    :path: "../../../"
+
+SPEC CHECKSUMS:
+  Pytorch: 1ddcab6651cc50e7616ffa7945161c4b4eb95e19
+
+PODFILE CHECKSUM: 9131a29197193f259e2ba33d6720744ac9a2d017
+
+COCOAPODS: 1.7.1

@@ -4,28 +4,30 @@ Pod::Spec.new do |s|
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
-    s.source           = { :http => "https://xta0.me/resource/PytorchC_08142019.tar.gz" }
+    s.source           = { :git => 'git@github.com:xta0/Pytorch-iOS.git' }
     s.summary          = 'Pytorch iOS Beta'
     s.description      = <<-DESC
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
     intended to be used directly.
-                         DESC
-    s.default_subspec = 'Core'
+    DESC
+
+    s.ios.deployment_target = '9.0'
+    s.default_subspec = %[Core]
     s.subspec 'Core' do |ss|
         ss.dependency 'Pytorch/API'
-        ss.source_files = 'src/*{.h,.m,.mm,.cpp,.c}'
+        ss.source_files = 'src/*{.h,.m,.hh,.mm}'
         ss.public_header_files = 'src/Pytorch.h'
-    s.libraries = "stdc++"
+        ss.libraries = "stdc++"
     end
-
+    
     s.subspec 'API' do |ss|
         ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*.h'
+        ss.preserve_paths = 'install/include/**/*.h', 'install/include/ATen/*', 'install/include/torch/*'
         ss.xcconfig = {
-            'HEADER_SEARCH_PATHS' =>  '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
+          'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
         }
-        ss.vendered_libraries = 'install/lib/libtorch.a'
+        ss.vendored_libraries = 'install/lib/libtorch.a'
         ss.libraries = 'stdc++'
     end
     s.libraries = 'stdc++'
