@@ -17,12 +17,6 @@ Pod::Spec.new do |s|
         ss.dependency 'Pytorch/API'
         ss.source_files = 'src/*{.h,.m,.hh,.mm}'
         ss.public_header_files = 'src/Pytorch.h'
-        ss.library = 'c++'
-        ss.xcconfig = {
-            'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-            'CLANG_CXX_LIBRARY' => 'libc++'
-       }
-       ss.libraries = 'c++', 'stdc++'
     end
     
     s.subspec 'API' do |ss|
@@ -32,6 +26,10 @@ Pod::Spec.new do |s|
           'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
         }
+        ss.xcconfig = {
+            'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+            'CLANG_CXX_LIBRARY' => 'libc++'
+       }
         ss.vendored_libraries = 'install/lib/libtorch.a'
         ss.libraries = 'c++', 'stdc++'
     end
