@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
     s.default_subspec = 'Core'
     s.subspec 'Core' do |ss|
-        ss.dependency 'Pytorch/API'
+        ss.dependency 'Pytorch-Exp/API'
         ss.source_files = 'src/*{.h,.m,.hh,.mm}'
         ss.public_header_files = 'src/Pytorch.h'
     end
@@ -33,8 +33,8 @@ Pod::Spec.new do |s|
         ss.header_mappings_dir = 'install/include/'
         ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}'
         ss.xcconfig = {
-          'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
-            'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
+          'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
+            'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
         }
         ss.xcconfig = {
             'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
