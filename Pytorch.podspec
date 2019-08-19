@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Pytorch'
-    s.version          = '0.0.5'
+    s.version          = '0.0.1'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'API' do |ss|
         ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*'
+        ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}'
         ss.xcconfig = {
           'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
