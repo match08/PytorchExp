@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
             'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
             'CLANG_CXX_LIBRARY' => 'libc++'
        }
+       ss.libraries = 'c++', 'stdc++'
     end
     
     s.subspec 'API' do |ss|
@@ -32,7 +33,8 @@ Pod::Spec.new do |s|
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
         }
         ss.vendored_libraries = 'install/lib/libtorch.a'
+        ss.libraries = 'c++', 'stdc++'
     end
-    s.library = 'c++'
+    s.library = 'c++', 'stdc++'
    
 end
