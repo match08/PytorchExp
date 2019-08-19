@@ -11,13 +11,17 @@ Pod::Spec.new do |s|
     intended to be used directly.
     DESC
 
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.3'
     s.default_subspec = %[Core]
     s.subspec 'Core' do |ss|
         ss.dependency 'Pytorch/API'
         ss.source_files = 'src/*{.h,.m,.hh,.mm}'
         ss.public_header_files = 'src/Pytorch.h'
-        ss.libraries = "stdc++"
+        ss.library = 'c++'
+        ss.xcconfig = {
+             'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+             'CLANG_CXX_LIBRARY' => 'libc++'
+        }
     end
     
     s.subspec 'API' do |ss|
@@ -28,7 +32,11 @@ Pod::Spec.new do |s|
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
         }
         ss.vendored_libraries = 'install/lib/libtorch.a'
-        ss.libraries = 'stdc++'
+        
     end
-    s.libraries = 'stdc++'
+    s.library = 'c++'
+    s.xcconfig = {
+         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+         'CLANG_CXX_LIBRARY' => 'libc++'
+    }
 end
