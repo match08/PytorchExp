@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Pytorch-Exp'
-    s.version          = '0.0.2'
+    s.version          = '0.0.3'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
