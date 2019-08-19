@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
-    s.source           = { :git => 'git@github.com:xta0/Pytorch-iOS.git', :branch => "master" }
+    s.source           = { :git => 'https://github.com/xta0/Pytorch-iOS.git', :branch => "master" }
     s.summary          = 'Pytorch iOS Beta'
     s.description      = <<-DESC
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
