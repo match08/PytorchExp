@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = 'Pytorch'
+    s.name             = 'Pytorch-Exp'
     s.version          = '0.0.1'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
