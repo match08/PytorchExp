@@ -1,20 +1,16 @@
 PODS:
-  - Pytorch (0.0.1):
-    - Pytorch/Core (= 0.0.1)
-  - Pytorch/API (0.0.1)
-  - Pytorch/Core (0.0.1):
-    - Pytorch/API
+  - Pytorch-Exp (0.0.1)
 
 DEPENDENCIES:
-  - Pytorch (from `../../../`)
+  - Pytorch-Exp (from `../../../`)
 
 EXTERNAL SOURCES:
-  Pytorch:
+  Pytorch-Exp:
     :path: "../../../"
 
 SPEC CHECKSUMS:
-  Pytorch: 1ddcab6651cc50e7616ffa7945161c4b4eb95e19
+  Pytorch-Exp: b06dc3da78c2ccce9de209779e6ef184443f7b95
 
-PODFILE CHECKSUM: 9131a29197193f259e2ba33d6720744ac9a2d017
+PODFILE CHECKSUM: 5dbfdca39c7700ad6533b5785b31487312149348
 
 COCOAPODS: 1.7.1
