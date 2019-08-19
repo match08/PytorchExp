@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30C1E3FFF13F42238B860CAC /* libPods-ImageClassification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EC91D0E14352BE33FCECF2 /* libPods-ImageClassification.a */; };
 		A0523431230A1A5B00236FC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523430230A1A5B00236FC0 /* AppDelegate.m */; };
 		A0523434230A1A5B00236FC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523433230A1A5B00236FC0 /* ViewController.m */; };
 		A0523437230A1A5B00236FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0523435230A1A5B00236FC0 /* Main.storyboard */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1612C50AE335B93CEA9A9F4A /* Pods-ImageClassification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.debug.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.debug.xcconfig"; sourceTree = "<group>"; };
 		A052342C230A1A5B00236FC0 /* ImageClassification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageClassification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052342F230A1A5B00236FC0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0523430230A1A5B00236FC0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,8 +38,6 @@
 		A0523449230A1CC600236FC0 /* snake_400x400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snake_400x400.jpg; sourceTree = "<group>"; };
 		A052344B230A1CC600236FC0 /* synset_words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = synset_words.txt; sourceTree = "<group>"; };
 		A052344C230A1CC600236FC0 /* resnet18.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = resnet18.pt; sourceTree = "<group>"; };
-		B3EC91D0E14352BE33FCECF2 /* libPods-ImageClassification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageClassification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE36580B36A43B375778D1E3 /* Pods-ImageClassification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.release.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,28 +45,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C1E3FFF13F42238B860CAC /* libPods-ImageClassification.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70D6F47FCC9EE03A5234B293 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B3EC91D0E14352BE33FCECF2 /* libPods-ImageClassification.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A0523423230A1A5B00236FC0 = {
 			isa = PBXGroup;
 			children = (
 				A052342E230A1A5B00236FC0 /* ImageClassification */,
 				A052342D230A1A5B00236FC0 /* Products */,
 				C893A4E56BCBE0E991734EC3 /* Pods */,
-				70D6F47FCC9EE03A5234B293 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,8 +109,6 @@
 		C893A4E56BCBE0E991734EC3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1612C50AE335B93CEA9A9F4A /* Pods-ImageClassification.debug.xcconfig */,
-				BE36580B36A43B375778D1E3 /* Pods-ImageClassification.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -136,7 +120,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0523442230A1A5D00236FC0 /* Build configuration list for PBXNativeTarget "ImageClassification" */;
 			buildPhases = (
-				40C7B796B03C05FDC5CAB711 /* [CP] Check Pods Manifest.lock */,
 				A0523428230A1A5B00236FC0 /* Sources */,
 				A0523429230A1A5B00236FC0 /* Frameworks */,
 				A052342A230A1A5B00236FC0 /* Resources */,
@@ -200,31 +183,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		40C7B796B03C05FDC5CAB711 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ImageClassification-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0523428230A1A5B00236FC0 /* Sources */ = {
@@ -373,7 +331,6 @@
 		};
 		A0523443230A1A5D00236FC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1612C50AE335B93CEA9A9F4A /* Pods-ImageClassification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,7 +357,6 @@
 		};
 		A0523444230A1A5D00236FC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE36580B36A43B375778D1E3 /* Pods-ImageClassification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
