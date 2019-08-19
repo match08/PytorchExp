@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     DESC
 
     s.ios.deployment_target = '10.3'
-    s.default_subspec = %[Core]
+    s.default_subspec = 'Core'
     s.subspec 'Core' do |ss|
         ss.dependency 'Pytorch/API'
         ss.source_files = 'src/*{.h,.m,.hh,.mm}'
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'API' do |ss|
         ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*.h', 'install/include/ATen/*', 'install/include/torch/*'
+        ss.preserve_paths = 'install/include/**/*'
         ss.xcconfig = {
           'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch/install/include/"',
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch/install/lib/libtorch.a"'
