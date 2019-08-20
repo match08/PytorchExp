@@ -24,13 +24,12 @@
                                     <constraint firstAttribute="width" secondItem="XZ2-D4-Ajd" secondAttribute="height" id="A6H-f8-I0B"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-b9-W04">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xGA-Vt-rCB">
                                 <rect key="frame" x="20" y="502" width="374" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nsg-8U-hdM">
                                 <rect key="frame" x="187" y="652" width="40" height="40"/>
                                 <constraints>
@@ -43,13 +42,13 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XZ2-D4-Ajd" secondAttribute="trailing" constant="20" id="2be-vx-zfX"/>
                             <constraint firstItem="XZ2-D4-Ajd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6SG-Kj-c5K"/>
-                            <constraint firstItem="Nsg-8U-hdM" firstAttribute="centerY" secondItem="txZ-b9-W04" secondAttribute="centerY" id="6Zy-3m-pG6"/>
+                            <constraint firstItem="Nsg-8U-hdM" firstAttribute="centerY" secondItem="xGA-Vt-rCB" secondAttribute="centerY" id="9Sc-T8-VIg"/>
                             <constraint firstItem="XZ2-D4-Ajd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DBg-oZ-1Ku"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="txZ-b9-W04" secondAttribute="bottom" constant="20" id="JGC-Jd-IUh"/>
-                            <constraint firstItem="txZ-b9-W04" firstAttribute="top" secondItem="XZ2-D4-Ajd" secondAttribute="bottom" constant="20" id="XIb-5V-QT9"/>
-                            <constraint firstItem="txZ-b9-W04" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XS3-K7-EJr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="txZ-b9-W04" secondAttribute="trailing" constant="20" id="e0O-Pp-yok"/>
-                            <constraint firstItem="Nsg-8U-hdM" firstAttribute="centerX" secondItem="txZ-b9-W04" secondAttribute="centerX" id="pA5-4R-ORV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xGA-Vt-rCB" secondAttribute="bottom" constant="20" id="Or7-y1-7qw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xGA-Vt-rCB" secondAttribute="trailing" constant="20" id="ScK-nK-JxK"/>
+                            <constraint firstItem="xGA-Vt-rCB" firstAttribute="top" secondItem="XZ2-D4-Ajd" secondAttribute="bottom" constant="20" id="XaH-eT-Z8p"/>
+                            <constraint firstItem="Nsg-8U-hdM" firstAttribute="centerX" secondItem="xGA-Vt-rCB" secondAttribute="centerX" id="gJC-eL-o05"/>
+                            <constraint firstItem="xGA-Vt-rCB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hUd-1n-W7T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -57,7 +56,7 @@
                     <connections>
                         <outlet property="imageView" destination="XZ2-D4-Ajd" id="jQz-l0-6ky"/>
                         <outlet property="indicator" destination="Nsg-8U-hdM" id="H4E-4v-p3l"/>
-                        <outlet property="resultLabel" destination="txZ-b9-W04" id="hlj-g3-qQW"/>
+                        <outlet property="resultLabel" destination="xGA-Vt-rCB" id="xs3-Io-mEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

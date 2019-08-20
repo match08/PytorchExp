@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048192D19C76FD20ACD039DA /* libPods-ImageClassification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D97D02839EBF65AF2F5234D0 /* libPods-ImageClassification.a */; };
 		A0523431230A1A5B00236FC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523430230A1A5B00236FC0 /* AppDelegate.m */; };
-		A0523434230A1A5B00236FC0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523433230A1A5B00236FC0 /* ViewController.m */; };
+		A0523434230A1A5B00236FC0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A0523433230A1A5B00236FC0 /* ViewController.mm */; };
 		A0523437230A1A5B00236FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0523435230A1A5B00236FC0 /* Main.storyboard */; };
 		A0523439230A1A5D00236FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0523438230A1A5D00236FC0 /* Assets.xcassets */; };
 		A052343C230A1A5D00236FC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A052343A230A1A5D00236FC0 /* LaunchScreen.storyboard */; };
@@ -19,14 +20,18 @@
 		A0523450230A1CC600236FC0 /* snake_400x400.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0523449230A1CC600236FC0 /* snake_400x400.jpg */; };
 		A0523451230A1CC600236FC0 /* synset_words.txt in Resources */ = {isa = PBXBuildFile; fileRef = A052344B230A1CC600236FC0 /* synset_words.txt */; };
 		A0523452230A1CC600236FC0 /* resnet18.pt in Resources */ = {isa = PBXBuildFile; fileRef = A052344C230A1CC600236FC0 /* resnet18.pt */; };
+		A073BE8C230BC04400E27DEE /* ImagePredictor.mm in Sources */ = {isa = PBXBuildFile; fileRef = A073BE88230BC04400E27DEE /* ImagePredictor.mm */; };
+		A073BE8D230BC04400E27DEE /* UIImage+Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = A073BE8A230BC04400E27DEE /* UIImage+Utils.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58E5DC4CF13E6EC78301BA51 /* Pods-ImageClassification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.debug.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.debug.xcconfig"; sourceTree = "<group>"; };
+		9DF28BEABDAF411EC81AABFB /* Pods-ImageClassification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.release.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.release.xcconfig"; sourceTree = "<group>"; };
 		A052342C230A1A5B00236FC0 /* ImageClassification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageClassification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052342F230A1A5B00236FC0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0523430230A1A5B00236FC0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A0523432230A1A5B00236FC0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A0523433230A1A5B00236FC0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A0523433230A1A5B00236FC0 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		A0523436230A1A5B00236FC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0523438230A1A5D00236FC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A052343B230A1A5D00236FC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +43,11 @@
 		A0523449230A1CC600236FC0 /* snake_400x400.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snake_400x400.jpg; sourceTree = "<group>"; };
 		A052344B230A1CC600236FC0 /* synset_words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = synset_words.txt; sourceTree = "<group>"; };
 		A052344C230A1CC600236FC0 /* resnet18.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = resnet18.pt; sourceTree = "<group>"; };
+		A073BE88230BC04400E27DEE /* ImagePredictor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImagePredictor.mm; sourceTree = "<group>"; };
+		A073BE89230BC04400E27DEE /* ImagePredictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePredictor.h; sourceTree = "<group>"; };
+		A073BE8A230BC04400E27DEE /* UIImage+Utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Utils.mm"; sourceTree = "<group>"; };
+		A073BE8B230BC04400E27DEE /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		D97D02839EBF65AF2F5234D0 /* libPods-ImageClassification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageClassification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,18 +55,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048192D19C76FD20ACD039DA /* libPods-ImageClassification.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0442C7000D4EFFD596A5748 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D97D02839EBF65AF2F5234D0 /* libPods-ImageClassification.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0523423230A1A5B00236FC0 = {
 			isa = PBXGroup;
 			children = (
 				A052342E230A1A5B00236FC0 /* ImageClassification */,
 				A052342D230A1A5B00236FC0 /* Products */,
-				C893A4E56BCBE0E991734EC3 /* Pods */,
+				FC8B81F74A21FFB2CFA167A7 /* Pods */,
+				A0442C7000D4EFFD596A5748 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,10 +93,14 @@
 			children = (
 				A052344A230A1CC600236FC0 /* models */,
 				A0523445230A1CC600236FC0 /* pics */,
+				A073BE89230BC04400E27DEE /* ImagePredictor.h */,
+				A073BE88230BC04400E27DEE /* ImagePredictor.mm */,
+				A073BE8B230BC04400E27DEE /* UIImage+Utils.h */,
+				A073BE8A230BC04400E27DEE /* UIImage+Utils.mm */,
 				A052342F230A1A5B00236FC0 /* AppDelegate.h */,
 				A0523430230A1A5B00236FC0 /* AppDelegate.m */,
 				A0523432230A1A5B00236FC0 /* ViewController.h */,
-				A0523433230A1A5B00236FC0 /* ViewController.m */,
+				A0523433230A1A5B00236FC0 /* ViewController.mm */,
 				A0523435230A1A5B00236FC0 /* Main.storyboard */,
 				A0523438230A1A5D00236FC0 /* Assets.xcassets */,
 				A052343A230A1A5D00236FC0 /* LaunchScreen.storyboard */,
@@ -106,9 +130,11 @@
 			path = models;
 			sourceTree = "<group>";
 		};
-		C893A4E56BCBE0E991734EC3 /* Pods */ = {
+		FC8B81F74A21FFB2CFA167A7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				58E5DC4CF13E6EC78301BA51 /* Pods-ImageClassification.debug.xcconfig */,
+				9DF28BEABDAF411EC81AABFB /* Pods-ImageClassification.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -120,6 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0523442230A1A5D00236FC0 /* Build configuration list for PBXNativeTarget "ImageClassification" */;
 			buildPhases = (
+				C5D35080ABD7BCBE6F4392CA /* [CP] Check Pods Manifest.lock */,
 				A0523428230A1A5B00236FC0 /* Sources */,
 				A0523429230A1A5B00236FC0 /* Frameworks */,
 				A052342A230A1A5B00236FC0 /* Resources */,
@@ -184,12 +211,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C5D35080ABD7BCBE6F4392CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageClassification-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0523428230A1A5B00236FC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0523434230A1A5B00236FC0 /* ViewController.m in Sources */,
+				A073BE8C230BC04400E27DEE /* ImagePredictor.mm in Sources */,
+				A0523434230A1A5B00236FC0 /* ViewController.mm in Sources */,
+				A073BE8D230BC04400E27DEE /* UIImage+Utils.mm in Sources */,
 				A052343F230A1A5D00236FC0 /* main.m in Sources */,
 				A0523431230A1A5B00236FC0 /* AppDelegate.m in Sources */,
 			);
@@ -331,24 +385,20 @@
 		};
 		A0523443230A1A5D00236FC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58E5DC4CF13E6EC78301BA51 /* Pods-ImageClassification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ImageClassification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"Pytorch-Exp\"",
-					"-l\"c++\"",
-					"-l\"stdc++\"",
-					"-force_load",
-					"$(PODS_ROOT)/Pytorch/install/lib/libtorch.a",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com..ImageClassification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -357,24 +407,20 @@
 		};
 		A0523444230A1A5D00236FC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DF28BEABDAF411EC81AABFB /* Pods-ImageClassification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ImageClassification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"Pytorch-Exp\"",
-					"-l\"c++\"",
-					"-l\"stdc++\"",
-					"-force_load",
-					"$(PODS_ROOT)/Pytorch/install/lib/libtorch.a",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com..ImageClassification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

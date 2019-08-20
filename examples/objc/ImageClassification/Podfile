@@ -1,14 +1,6 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
-target 'ImageClassification' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  pod 'Pytorch-Exp', :path => '../../../'
-end
+platform :ios, '10.3'
 
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'NO'
-    end
-  end
+target 'ImageClassification' do
+	pod 'Pytorch-Exp'
 end
