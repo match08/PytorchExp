@@ -32,7 +32,7 @@ auto outputs= module.forward(inputs).toTensor();
 
 ### ToDo
 
-- Add a C API wrapper for Objective-C and Swift
+- Add a C API wrapper for C++ APIs
 - Make a Swift demo
 - Shrink the binary size
 
