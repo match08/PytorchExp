@@ -6,7 +6,7 @@ Experimental Pytorch cocoapods for iOS.
 
 ### Installation
 
-To try Pytorch-Exp, simply add the following code to your Podfile 
+To install Pytorch-Exp, simply add the following code to your Podfile 
 
 ```
 pod 'Pytorch-Exp'
