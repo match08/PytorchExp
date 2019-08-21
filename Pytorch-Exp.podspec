@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Pytorch-Exp'
-    s.version          = '0.0.3'
+    s.version          = '0.0.4'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
@@ -33,6 +33,6 @@ Pod::Spec.new do |s|
             'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
         }
     end
-    s.module_name='Pytorch-Exp'
+    s.module_name='PytorchExp'
     s.library = 'c++', 'stdc++'
 end
