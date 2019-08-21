@@ -28,10 +28,11 @@ Pod::Spec.new do |s|
        }
         ss.vendored_libraries = 'install/lib/libtorch.a'
         ss.libraries = 'c++', 'stdc++'
+        ss.xcconfig = {
+            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
+            'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
+        }
     end
-    s.xcconfig = {
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
-        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
-    }
+    s.module_name='Pytorch-Exp'
     s.library = 'c++', 'stdc++'
 end
