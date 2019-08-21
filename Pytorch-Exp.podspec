@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '10.3'
     s.default_subspec = 'Core'
     s.subspec 'Core' do |ss|
-        ss.dependency 'Pytorch-Exp/API'
+        ss.dependency 'Pytorch-Exp/Libtorch'
         ss.source_files = 'src/*.{h,cpp,cc}'
         ss.public_header_files = 'src/*.h'
     end
