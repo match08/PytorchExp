@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     s.subspec 'Core' do |ss|
         ss.dependency 'Pytorch-Exp/Libtorch'
         ss.source_files = 'src/*.{h,cpp,cc}'
-        ss.public_header_files = 'src/PytorchExp.h', 'src/PytorchExp_c_api.h'
+        ss.public_header_files = ['src/PytorchExp.h', 'src/PytorchExp_c_api.h']
     end
     
     s.subspec 'Libtorch' do |ss|
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
         ss.libraries = 'c++', 'stdc++'
     end
     s.user_target_xcconfig = {
-        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a',
+        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
