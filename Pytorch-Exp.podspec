@@ -16,27 +16,23 @@ Pod::Spec.new do |s|
     s.subspec 'Core' do |ss|
         ss.dependency 'Pytorch-Exp/Libtorch'
         ss.source_files = 'src/*.{h,cpp,cc}'
-        ss.public_header_files = 'src/*.h'
+        ss.public_header_files = 'src/PytorchExp.h', 'src/PytorchExp_c_api.h'
     end
     
     s.subspec 'Libtorch' do |ss|
         ss.header_mappings_dir = 'install/include/'
         ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}'   
-        ss.xcconfig = {
-            'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-            'CLANG_CXX_LIBRARY' => 'libc++'
-        }
-        ss.pod_target_xcconfig = {
-            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
-            'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
+        ss.pod_target_xcconfig = { 
+            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"', 
+            'VALID_ARCHS' => 'armv7 armv7s arm64'
         }
         ss.vendored_libraries = 'install/lib/libtorch.a'
         ss.libraries = 'c++', 'stdc++'
     end
-    s.xcconfig = {
-        'VALID_ARCHS' => 'armv7 armv7s arm64'
-        # 'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/include/"',
-        # 'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a"'
+    s.user_target_xcconfig = {
+        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/lib/libtorch.a',
+        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+        'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.module_name='PytorchExp'
     s.library = 'c++', 'stdc++'
