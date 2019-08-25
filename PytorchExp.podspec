@@ -27,12 +27,12 @@ Pod::Spec.new do |s|
     end
     
     s.pod_target_xcconfig = { 
-        'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/PytorchExp/src',
         'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
         'VALID_ARCHS' => 'armv7 armv7s arm64'
     }
     s.user_target_xcconfig = {
-        # 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/PytorchExp/src',
+        #a work arround for importing module map file 
+        'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/PytorchExp/src',
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
