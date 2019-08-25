@@ -1,5 +1,4 @@
-framework module PytorchExp {
-  umbrella header "PytorchExp.h"
-  export *
-  module * { export * }
+module PytorchExp [system][extern_c] {
+    umbrella header "PytorchExp.h"
+    export *
 }
