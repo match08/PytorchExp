@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
     }
     s.user_target_xcconfig = {
         #a work arround for importing module map file 
-        'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/PytorchExp/src',
+        'SWIFT_INCLUDE_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/src"',
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
