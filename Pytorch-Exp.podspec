@@ -36,4 +36,5 @@ Pod::Spec.new do |s|
     }
     s.module_name='PytorchExp'
     s.library = 'c++', 'stdc++'
+    s.static_framework = true
 end
