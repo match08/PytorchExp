@@ -17,6 +17,9 @@ Pod::Spec.new do |s|
         ss.dependency 'Pytorch-Exp/Libtorch'
         ss.source_files = 'src/*.{h,cpp,cc}'
         ss.public_header_files = ['src/PytorchExp.h', 'src/PytorchExp_c_api.h']
+        ss.preserve_paths = 'src/module.modulemap'
+        ss.pod_target_xcconfig = { 'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/Pytorch-Exp/src' }
+        ss.module_map = 'src/module.modulemap'
     end
     
     s.subspec 'Libtorch' do |ss|
@@ -37,4 +40,5 @@ Pod::Spec.new do |s|
     s.module_name='PytorchExp'
     s.library = 'c++', 'stdc++'
     s.static_framework = true
+    
 end

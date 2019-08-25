@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
 
   swift_dir =  'swift/'
   s.source_files = swift_dir + 'src/*.swift'
-  s.dependency 'Pytorch-Exp'
+  s.dependency 'Pytorch-Exp', :git => 'https://github.com/xta0/Pytorch-iOS.git'
 end
