@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
         ss.header_mappings_dir = 'install/include/'
         ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
         ss.vendored_libraries = 'install/lib/libtorch.a'
-        ss.libraries = 'c++', 'stdc++'
+        ss.libraries = 'c++', 'stdc++',
         ss.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 armv7s arm64' }
     end
     
