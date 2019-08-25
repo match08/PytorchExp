@@ -22,17 +22,17 @@ Pod::Spec.new do |s|
     
     s.subspec 'Libtorch' do |ss|
         ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}'   
+        ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
         ss.vendored_libraries = 'install/lib/libtorch.a'
         ss.libraries = 'c++', 'stdc++'
+        ss.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 armv7s arm64' }
     end
     
     s.user_target_xcconfig = {
         'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-        'CLANG_CXX_LIBRARY' => 'libc++',
-        'VALID_ARCHS' => 'armv7 armv7s arm64'
+        'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.static_framework = true
     s.module_name='PytorchExp'
