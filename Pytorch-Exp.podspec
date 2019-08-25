@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.preserve_paths = 'Frameworks/PytorchExp.framework/Headers/include/**/*.{h,cpp,cc,c}'  
     s.public_header_files = ['Frameworks/PytorchExp.framework/Headers/PytorchExp.h', 'Frameworks/PytorchExp.framework/Headers/PytorchExp_c_api.h']
     s.pod_target_xcconfig = { 
-            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/Frameworks/PytorchExp.framework/Headers/" "$(PODS_ROOT)/Pytorch-Exp/Frameworks/PytorchExp.framework/PrivateHeaders/', 
+            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/Frameworks/PytorchExp.framework/Headers/" "$(PODS_ROOT)/Pytorch-Exp/Frameworks/PytorchExp.framework/PrivateHeaders/"', 
             'VALID_ARCHS' => 'armv7 armv7s arm64'
         }
     s.user_target_xcconfig = {
