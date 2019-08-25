@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
-    s.vendored_frameworks = 'Frameworks/PytorchExp.framework'
+    s.vendored_frameworks = 'install/PytorchExp.framework'
     s.library = 'c++', 'stdc++'
     
     
