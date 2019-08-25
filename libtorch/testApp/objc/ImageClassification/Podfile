@@ -2,5 +2,5 @@
 platform :ios, '10.3'
 
 target 'ImageClassification' do
-	pod 'PytorchExp', :git => 'https://github.com/xta0/PytorchExp.git' , branch => 'master'
+	pod 'PytorchExp', :git => 'https://github.com/xta0/PytorchExp.git' , :branch => 'master'
 end
