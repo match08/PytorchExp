@@ -13,10 +13,10 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '10.3'
     s.module_name='PytorchExp'
-    s.header_mappings_dir = 'install/Pytorch.framework/Headers/include/'
-    s.preserve_paths = 'install/Pytorch.framework/Headers/include/**/*.{h,cpp,cc,c}'  
+    s.header_mappings_dir = 'install/PytorchExp.framework/Headers/include/'
+    s.preserve_paths = 'install/PytorchExp.framework/Headers/include/**/*.{h,cpp,cc,c}'  
     s.pod_target_xcconfig = { 
-            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/Pytorch.framework/Headers/include/"', 
+            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/Headers/include/"', 
             'VALID_ARCHS' => 'armv7 armv7s arm64'
         }
     s.user_target_xcconfig = {
