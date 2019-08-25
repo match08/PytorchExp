@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		856AE7FBF07C4CF453200329 /* libPods-ImageClassification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */; };
 		A0523431230A1A5B00236FC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523430230A1A5B00236FC0 /* AppDelegate.m */; };
 		A0523434230A1A5B00236FC0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A0523433230A1A5B00236FC0 /* ViewController.mm */; };
 		A0523437230A1A5B00236FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0523435230A1A5B00236FC0 /* Main.storyboard */; };
@@ -24,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.release.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.release.xcconfig"; sourceTree = "<group>"; };
+		53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.debug.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.debug.xcconfig"; sourceTree = "<group>"; };
+		675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageClassification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052342C230A1A5B00236FC0 /* ImageClassification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageClassification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052342F230A1A5B00236FC0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0523430230A1A5B00236FC0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,17 +55,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856AE7FBF07C4CF453200329 /* libPods-ImageClassification.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F85BA61C40D2829B326153C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D0D6328F3F8A2B09EAF95EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */,
+				456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A0523423230A1A5B00236FC0 = {
 			isa = PBXGroup;
 			children = (
 				A052342E230A1A5B00236FC0 /* ImageClassification */,
 				A052342D230A1A5B00236FC0 /* Products */,
+				3D0D6328F3F8A2B09EAF95EC /* Pods */,
+				0F85BA61C40D2829B326153C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +147,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0523442230A1A5D00236FC0 /* Build configuration list for PBXNativeTarget "ImageClassification" */;
 			buildPhases = (
+				5510C43DCB06F7F9DEFADE74 /* [CP] Check Pods Manifest.lock */,
 				A0523428230A1A5B00236FC0 /* Sources */,
 				A0523429230A1A5B00236FC0 /* Frameworks */,
 				A052342A230A1A5B00236FC0 /* Resources */,
@@ -185,6 +211,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5510C43DCB06F7F9DEFADE74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageClassification-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0523428230A1A5B00236FC0 /* Sources */ = {
@@ -335,6 +386,7 @@
 		};
 		A0523443230A1A5D00236FC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";
@@ -356,6 +408,7 @@
 		};
 		A0523444230A1A5D00236FC0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";

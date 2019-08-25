@@ -1,0 +1,20 @@
+PODS:
+  - PytorchExp (0.0.1):
+    - PytorchExp/Core (= 0.0.1)
+  - PytorchExp/Core (0.0.1):
+    - PytorchExp/Libtorch
+  - PytorchExp/Libtorch (0.0.1)
+
+DEPENDENCIES:
+  - PytorchExp (from `../../../`)
+
+EXTERNAL SOURCES:
+  PytorchExp:
+    :path: "../../../"
+
+SPEC CHECKSUMS:
+  PytorchExp: 012ca3f963f3469eba1fbdb5d7de43feea3317e6
+
+PODFILE CHECKSUM: 613d7f6a7f43577f694d656a48680e3746364119
+
+COCOAPODS: 1.7.1
