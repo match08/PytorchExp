@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
-    s.module_name='PytorchExp'
+    s.module_name = 'PytorchExp'
+    s.module_map  = 'src/module.modulemap'
     s.library = 'c++', 'stdc++'
 end
