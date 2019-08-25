@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
             'VALID_ARCHS' => 'armv7 armv7s arm64'
         }
     s.user_target_xcconfig = {
-        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/libtorch"',
+        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/Frameworks/libtorch"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
