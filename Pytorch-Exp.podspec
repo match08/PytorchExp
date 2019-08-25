@@ -13,13 +13,13 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '10.3'
     s.module_name='PytorchExp'
-    s.header_mappings_dir = 'install/PytorchExp.framework/Headers/include/'
-    s.preserve_paths = 'install/PytorchExp.framework/Headers/include/**/*.{h,cpp,cc,c}'  
-    s.public_header_files = ['install/PytorchExp.framework/Headers/PytorchExp.h', 'install/PytorchExp.framework/Headers/PytorchExp_c_api.h']
-    s.pod_target_xcconfig = { 
-            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/Headers/include/"', 
-            'VALID_ARCHS' => 'armv7 armv7s arm64'
-        }
+    # s.header_mappings_dir = 'install/PytorchExp.framework/Headers/include/'
+    # s.preserve_paths = 'install/PytorchExp.framework/Headers/include/**/*.{h,cpp,cc,c}'  
+    # s.public_header_files = ['install/PytorchExp.framework/Headers/PytorchExp.h', 'install/PytorchExp.framework/Headers/PytorchExp_c_api.h']
+    # s.pod_target_xcconfig = { 
+    #         'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/Headers/include/"', 
+    #         'VALID_ARCHS' => 'armv7 armv7s arm64'
+    #     }
     s.user_target_xcconfig = {
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/Pytorch-Exp/install/PytorchExp.framework/Frameworks/libtorch"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
