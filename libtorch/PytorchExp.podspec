@@ -13,25 +13,26 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '10.3'
     s.default_subspec = 'Core'
+    
     s.subspec 'Core' do |ss|
         ss.dependency 'PytorchExp/Libtorch'
-        ss.source_files = 'src/*.{h,cpp,cc}'
-        ss.public_header_files = ['src/PytorchExp.h', 'src/PytorchExp_c_api.h']
+        ss.source_files = 'libtorch/src/*.{h,cpp,cc}'
+        ss.public_header_files = ['libtorch/src/PytorchExp.h']
     end
     
     s.subspec 'Libtorch' do |ss|
-        ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}'   
+        ss.header_mappings_dir = 'libtorch/install/include/'
+        ss.preserve_paths = 'libtorch/install/include/**/*.{h,cpp,cc,c}'   
         ss.pod_target_xcconfig = { 
-            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
+            'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/libtorch/PytorchExp/install/include/"', 
             'VALID_ARCHS' => 'armv7 armv7s arm64'
         }
-        ss.vendored_libraries = 'install/lib/libtorch.a'
+        ss.vendored_libraries = 'libtorch/install/lib/libtorch.a'
         ss.libraries = 'c++', 'stdc++'
     end
     
     s.user_target_xcconfig = {
-        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
+        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/libtorch/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
