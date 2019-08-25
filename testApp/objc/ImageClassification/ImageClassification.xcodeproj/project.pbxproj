@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		856AE7FBF07C4CF453200329 /* libPods-ImageClassification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */; };
 		A0523431230A1A5B00236FC0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0523430230A1A5B00236FC0 /* AppDelegate.m */; };
 		A0523434230A1A5B00236FC0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A0523433230A1A5B00236FC0 /* ViewController.mm */; };
 		A0523437230A1A5B00236FC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0523435230A1A5B00236FC0 /* Main.storyboard */; };
@@ -22,12 +21,11 @@
 		A0523452230A1CC600236FC0 /* resnet18.pt in Resources */ = {isa = PBXBuildFile; fileRef = A052344C230A1CC600236FC0 /* resnet18.pt */; };
 		A073BE8C230BC04400E27DEE /* ImagePredictor.mm in Sources */ = {isa = PBXBuildFile; fileRef = A073BE88230BC04400E27DEE /* ImagePredictor.mm */; };
 		A073BE8D230BC04400E27DEE /* UIImage+Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = A073BE8A230BC04400E27DEE /* UIImage+Utils.mm */; };
+		E04D80FE26769855F78F03D4 /* libPods-ImageClassification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C79234E159B9B63C8BAD71C4 /* libPods-ImageClassification.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.release.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.release.xcconfig"; sourceTree = "<group>"; };
-		53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.debug.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.debug.xcconfig"; sourceTree = "<group>"; };
-		675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageClassification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		310A41A7F5339CEA56D91D65 /* Pods-ImageClassification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.debug.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.debug.xcconfig"; sourceTree = "<group>"; };
 		A052342C230A1A5B00236FC0 /* ImageClassification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageClassification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A052342F230A1A5B00236FC0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0523430230A1A5B00236FC0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +46,8 @@
 		A073BE89230BC04400E27DEE /* ImagePredictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePredictor.h; sourceTree = "<group>"; };
 		A073BE8A230BC04400E27DEE /* UIImage+Utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+Utils.mm"; sourceTree = "<group>"; };
 		A073BE8B230BC04400E27DEE /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		C79234E159B9B63C8BAD71C4 /* libPods-ImageClassification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImageClassification.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FA71FB2250AF17B0B3FB01 /* Pods-ImageClassification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageClassification.release.xcconfig"; path = "Target Support Files/Pods-ImageClassification/Pods-ImageClassification.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,28 +55,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				856AE7FBF07C4CF453200329 /* libPods-ImageClassification.a in Frameworks */,
+				E04D80FE26769855F78F03D4 /* libPods-ImageClassification.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F85BA61C40D2829B326153C /* Frameworks */ = {
+		050849DF61B5F962ED97BA67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				675F858D1C0E710A33B5ECFF /* libPods-ImageClassification.a */,
+				310A41A7F5339CEA56D91D65 /* Pods-ImageClassification.debug.xcconfig */,
+				C8FA71FB2250AF17B0B3FB01 /* Pods-ImageClassification.release.xcconfig */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3D0D6328F3F8A2B09EAF95EC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */,
-				456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */,
-			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,8 +76,8 @@
 			children = (
 				A052342E230A1A5B00236FC0 /* ImageClassification */,
 				A052342D230A1A5B00236FC0 /* Products */,
-				3D0D6328F3F8A2B09EAF95EC /* Pods */,
-				0F85BA61C40D2829B326153C /* Frameworks */,
+				050849DF61B5F962ED97BA67 /* Pods */,
+				A25790A2786499003DEE3472 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +131,14 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		A25790A2786499003DEE3472 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C79234E159B9B63C8BAD71C4 /* libPods-ImageClassification.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,7 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0523442230A1A5D00236FC0 /* Build configuration list for PBXNativeTarget "ImageClassification" */;
 			buildPhases = (
-				5510C43DCB06F7F9DEFADE74 /* [CP] Check Pods Manifest.lock */,
+				C734860668A5B8C1389AC8E9 /* [CP] Check Pods Manifest.lock */,
 				A0523428230A1A5B00236FC0 /* Sources */,
 				A0523429230A1A5B00236FC0 /* Frameworks */,
 				A052342A230A1A5B00236FC0 /* Resources */,
@@ -213,7 +212,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5510C43DCB06F7F9DEFADE74 /* [CP] Check Pods Manifest.lock */ = {
+		C734860668A5B8C1389AC8E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,14 +385,17 @@
 		};
 		A0523443230A1A5D00236FC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53EF0E2ED22DF7B80D36B5C0 /* Pods-ImageClassification.debug.xcconfig */;
+			baseConfigurationReference = 310A41A7F5339CEA56D91D65 /* Pods-ImageClassification.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GW8XWHWQR7;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/PytorchExp/install/include/\"",
+				);
 				INFOPLIST_FILE = ImageClassification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,14 +410,17 @@
 		};
 		A0523444230A1A5D00236FC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 456E10786DA9671B9249830A /* Pods-ImageClassification.release.xcconfig */;
+			baseConfigurationReference = C8FA71FB2250AF17B0B3FB01 /* Pods-ImageClassification.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GW8XWHWQR7;
 				ENABLE_BITCODE = NO;
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PODS_ROOT)/PytorchExp/install/include/\"",
+				);
 				INFOPLIST_FILE = ImageClassification/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -3,7 +3,7 @@
 //
 
 #import "ImagePredictor.h"
-#import <PytorchExp/PytorchExp.h>
+#include <PytorchExp/PytorchExp.h>
 #import <vector>
 #import "UIImage+Utils.h"
 
