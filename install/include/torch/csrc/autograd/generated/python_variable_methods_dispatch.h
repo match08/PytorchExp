@@ -1163,6 +1163,26 @@ inline Tensor dispatch_logdet(Tensor & self) {
   AutoNoGIL no_gil;
   return self.logdet();
 }
+inline Tensor dispatch_logical_not(Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.logical_not();
+}
+inline Tensor dispatch_logical_not_(Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.logical_not_();
+}
+inline Tensor dispatch_logical_xor(Tensor & self, const Tensor & other) {
+
+  AutoNoGIL no_gil;
+  return self.logical_xor(other);
+}
+inline Tensor dispatch_logical_xor_(Tensor & self, const Tensor & other) {
+
+  AutoNoGIL no_gil;
+  return self.logical_xor_(other);
+}
 inline Tensor dispatch_logsumexp(Tensor & self, IntArrayRef dim, bool keepdim) {
 
   AutoNoGIL no_gil;
@@ -1477,6 +1497,16 @@ inline Tensor dispatch_put_(Tensor & self, const Tensor & index, const Tensor & 
 
   AutoNoGIL no_gil;
   return self.put_(index, source, accumulate);
+}
+inline Tensor dispatch_q_per_channel_scales(Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.q_per_channel_scales();
+}
+inline Tensor dispatch_q_per_channel_zero_points(Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.q_per_channel_zero_points();
 }
 inline double dispatch_q_scale(Tensor & self) {
 

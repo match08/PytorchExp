@@ -264,6 +264,11 @@ inline Tensor dispatch__empty_affine_quantized(IntArrayRef size, double scale, i
   AutoNoGIL no_gil;
   return torch::_empty_affine_quantized(size, options, scale, zero_point, memory_format);
 }
+inline Tensor dispatch__empty_per_channel_affine_quantized_like(const Tensor & self, const Tensor & zero_points, IntArrayRef size, IntArrayRef axis, c10::optional<MemoryFormat> memory_format, const TensorOptions & options) {
+  maybe_initialize_cuda(options);
+  AutoNoGIL no_gil;
+  return torch::_empty_per_channel_affine_quantized_like(self, zero_points, size, axis, options, memory_format);
+}
 inline Tensor dispatch__fft_with_size(const Tensor & self, int64_t signal_ndim, bool complex_input, bool complex_output, bool inverse, IntArrayRef checked_signal_sizes, bool normalized, bool onesided, IntArrayRef output_sizes) {
 
   AutoNoGIL no_gil;
@@ -388,6 +393,11 @@ inline std::tuple<Tensor,Tensor> dispatch__pad_packed_sequence(const Tensor & da
 
   AutoNoGIL no_gil;
   return at::_pad_packed_sequence(data, batch_sizes, batch_first, padding_value, total_length);
+}
+inline Tensor dispatch__per_channel_affine_qtensor(const Tensor & self, const Tensor & scale, const Tensor & zero_point, IntArrayRef axis) {
+
+  AutoNoGIL no_gil;
+  return at::_per_channel_affine_qtensor(self, scale, zero_point, axis);
 }
 inline Tensor dispatch__per_tensor_affine_qtensor(const Tensor & self, double scale, int64_t zero_point) {
 
@@ -754,10 +764,10 @@ inline Tensor dispatch_addr(const Tensor & self, const Tensor & vec1, const Tens
   AutoNoGIL no_gil;
   return self.addr(vec1, vec2, beta, alpha);
 }
-inline Tensor dispatch_affine_grid_generator(const Tensor & theta, IntArrayRef size) {
+inline Tensor dispatch_affine_grid_generator(const Tensor & theta, IntArrayRef size, bool align_corners) {
 
   AutoNoGIL no_gil;
-  return at::affine_grid_generator(theta, size);
+  return at::affine_grid_generator(theta, size, align_corners);
 }
 inline Tensor dispatch_all(const Tensor & self) {
 
@@ -1809,20 +1819,20 @@ inline Tensor dispatch_ger(const Tensor & self, const Tensor & vec2) {
   AutoNoGIL no_gil;
   return self.ger(vec2);
 }
-inline Tensor dispatch_grid_sampler(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode) {
+inline Tensor dispatch_grid_sampler(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners) {
 
   AutoNoGIL no_gil;
-  return at::grid_sampler(input, grid, interpolation_mode, padding_mode);
+  return at::grid_sampler(input, grid, interpolation_mode, padding_mode, align_corners);
 }
-inline Tensor dispatch_grid_sampler_2d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode) {
+inline Tensor dispatch_grid_sampler_2d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners) {
 
   AutoNoGIL no_gil;
-  return at::grid_sampler_2d(input, grid, interpolation_mode, padding_mode);
+  return at::grid_sampler_2d(input, grid, interpolation_mode, padding_mode, align_corners);
 }
-inline Tensor dispatch_grid_sampler_3d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode) {
+inline Tensor dispatch_grid_sampler_3d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners) {
 
   AutoNoGIL no_gil;
-  return at::grid_sampler_3d(input, grid, interpolation_mode, padding_mode);
+  return at::grid_sampler_3d(input, grid, interpolation_mode, padding_mode, align_corners);
 }
 inline Tensor dispatch_group_norm(const Tensor & input, int64_t num_groups, const Tensor & weight, const Tensor & bias, double eps, bool cudnn_enabled) {
 
@@ -2183,6 +2193,26 @@ inline Tensor dispatch_logdet(const Tensor & self) {
 
   AutoNoGIL no_gil;
   return self.logdet();
+}
+inline Tensor dispatch_logical_not(const Tensor & self, Tensor out) {
+
+  AutoNoGIL no_gil;
+  return at::logical_not_out(out, self);
+}
+inline Tensor dispatch_logical_not(const Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.logical_not();
+}
+inline Tensor dispatch_logical_xor(const Tensor & self, const Tensor & other, Tensor out) {
+
+  AutoNoGIL no_gil;
+  return at::logical_xor_out(out, self, other);
+}
+inline Tensor dispatch_logical_xor(const Tensor & self, const Tensor & other) {
+
+  AutoNoGIL no_gil;
+  return self.logical_xor(other);
 }
 inline Tensor dispatch_logspace(Scalar start, Scalar end, int64_t steps, double base, Tensor out) {
 
@@ -2803,6 +2833,16 @@ inline Tensor dispatch_prod(const Tensor & self, int64_t dim, bool keepdim, c10:
 
   AutoNoGIL no_gil;
   return self.prod(dim, keepdim, dtype);
+}
+inline Tensor dispatch_q_per_channel_scales(const Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.q_per_channel_scales();
+}
+inline Tensor dispatch_q_per_channel_zero_points(const Tensor & self) {
+
+  AutoNoGIL no_gil;
+  return self.q_per_channel_zero_points();
 }
 inline double dispatch_q_scale(const Tensor & self) {
 

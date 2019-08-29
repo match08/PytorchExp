@@ -222,6 +222,7 @@ struct TORCH_API AffineGridGeneratorBackward : public TraceableFunction {
   }
 
   std::vector<int64_t> size;
+  bool align_corners;
 
 };
 struct TORCH_API AliasBackward : public Node {
@@ -1044,6 +1045,7 @@ struct TORCH_API GridSampler2DBackward : public TraceableFunction {
   SavedVariable grid_;
   int64_t interpolation_mode = 0;
   int64_t padding_mode = 0;
+  bool align_corners;
 
 };
 struct TORCH_API GridSampler3DBackward : public TraceableFunction {
@@ -1061,6 +1063,7 @@ struct TORCH_API GridSampler3DBackward : public TraceableFunction {
   SavedVariable grid_;
   int64_t interpolation_mode = 0;
   int64_t padding_mode = 0;
+  bool align_corners;
 
 };
 struct TORCH_API GtBackward0 : public TraceableFunction {
@@ -4164,6 +4167,50 @@ struct TORCH_API MaxUnpool3DBackward : public TraceableFunction {
   std::vector<int64_t> output_size;
   std::vector<int64_t> stride;
   std::vector<int64_t> padding;
+
+};
+struct TORCH_API ConvolutionOverrideableBackward : public TraceableFunction {
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "ConvolutionOverrideableBackward"; }
+  void release_variables() override {
+    input_.reset_data();
+    input_.reset_grad_function();
+    weight_.reset_data();
+    weight_.reset_grad_function();
+  }
+
+  SavedVariable input_;
+  SavedVariable weight_;
+  std::vector<int64_t> stride;
+  std::vector<int64_t> padding;
+  std::vector<int64_t> dilation;
+  bool transposed;
+  std::vector<int64_t> output_padding;
+  int64_t groups = 0;
+
+};
+struct TORCH_API ConvolutionBackwardOverrideableBackward : public TraceableFunction {
+  using TraceableFunction::TraceableFunction;
+  variable_list apply(variable_list&& grads) override;
+  std::string name() const override { return "ConvolutionBackwardOverrideableBackward"; }
+  void release_variables() override {
+    grad_output_.reset_data();
+    grad_output_.reset_grad_function();
+    input_.reset_data();
+    input_.reset_grad_function();
+    weight_.reset_data();
+    weight_.reset_grad_function();
+  }
+
+  SavedVariable grad_output_;
+  SavedVariable input_;
+  SavedVariable weight_;
+  std::vector<int64_t> stride;
+  std::vector<int64_t> padding;
+  std::vector<int64_t> dilation;
+  std::vector<int64_t> output_padding;
+  int64_t groups = 0;
 
 };
 struct TORCH_API SlowConvTranspose2DBackward : public TraceableFunction {

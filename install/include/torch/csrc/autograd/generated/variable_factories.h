@@ -19,7 +19,7 @@ using at::DimnameList;
 
 namespace torch {
 
-#define TENSOR(T, S, _1)                                                   \
+#define TENSOR(T, S)                                                       \
   inline at::Tensor tensor(                                                \
       at::ArrayRef<T> values, const at::TensorOptions& options) {          \
     at::Tensor result = ([&]() {                                           \
@@ -44,7 +44,7 @@ namespace torch {
   inline at::Tensor tensor(T value) {                                      \
     return torch::tensor(at::ArrayRef<T>(value));                          \
   }
-AT_FORALL_SCALAR_TYPES_EXCEPT_HALF(TENSOR)
+AT_FORALL_SCALAR_TYPES_AND3(Bool, Half, BFloat16, TENSOR)
 #undef TENSOR
 
 /// A generic deleter function.
@@ -390,6 +390,37 @@ inline at::Tensor _empty_affine_quantized(at::IntArrayRef size, const at::Tensor
   at::Tensor tensor = ([&]() {
     at::AutoNonVariableTypeMode non_var_type_mode(true);
     return at::_empty_affine_quantized(size, at::TensorOptions(options).is_variable(false), scale, zero_point, memory_format);
+  })();
+  at::Tensor result =
+    autograd::make_variable(std::move(tensor), /*requires_grad=*/options.requires_grad());
+  if (tracer_state) {
+    jit::tracer::setTracingState(std::move(tracer_state));
+    jit::tracer::addOutput(node, result);
+  }
+  return result;
+}
+inline at::Tensor _empty_per_channel_affine_quantized_like(const at::Tensor & self, const at::Tensor & zero_points, at::IntArrayRef size, at::IntArrayRef axis, const at::TensorOptions & options = {}, c10::optional<MemoryFormat> memory_format = MemoryFormat::Contiguous) {
+  torch::jit::Node* node = nullptr;
+  std::shared_ptr<jit::tracer::TracingState> tracer_state;
+  if (jit::tracer::isTracing()) {
+    tracer_state = jit::tracer::getTracingState();
+    at::Symbol op_name;
+    op_name = jit::Symbol::fromQualString("aten::_empty_per_channel_affine_quantized_like");
+    node = tracer_state->graph->create(op_name, /*num_outputs=*/0);
+    jit::tracer::recordSourceLocation(node);
+    jit::tracer::addInputs(node, "self", self);
+    jit::tracer::addInputs(node, "zero_points", zero_points);
+    jit::tracer::addInputs(node, "size", size);
+    jit::tracer::addInputs(node, "axis", axis);
+    jit::tracer::addInputs(node, "options", options);
+    jit::tracer::addInputs(node, "memory_format", memory_format);
+    tracer_state->graph->insertNode(node);
+  
+    jit::tracer::setTracingState(nullptr);
+  }
+  at::Tensor tensor = ([&]() {
+    at::AutoNonVariableTypeMode non_var_type_mode(true);
+    return at::_empty_per_channel_affine_quantized_like(self, zero_points, size, axis, at::TensorOptions(options).is_variable(false), memory_format);
   })();
   at::Tensor result =
     autograd::make_variable(std::move(tensor), /*requires_grad=*/options.requires_grad());

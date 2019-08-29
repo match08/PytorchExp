@@ -84,7 +84,7 @@ template<> CAFFE2_API ::torch::TensorDef* Arena::CreateMaybeMessage<::torch::Ten
 namespace torch {
 
 enum ProtoVersion {
-  PROTO_VERSION_NEWEST = 5
+  PROTO_VERSION_NEWEST = 6
 };
 CAFFE2_API bool ProtoVersion_IsValid(int value);
 const ProtoVersion ProtoVersion_MIN = PROTO_VERSION_NEWEST;

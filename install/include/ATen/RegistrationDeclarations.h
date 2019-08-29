@@ -53,8 +53,8 @@ Tensor & addmv_out(Tensor & out, const Tensor & self, const Tensor & mat, const 
 Tensor addr(const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha); // aten::addr(Tensor self, Tensor vec1, Tensor vec2, *, Scalar beta=1, Scalar alpha=1) -> Tensor
 Tensor & addr_(Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha); // aten::addr_(Tensor(a!) self, Tensor vec1, Tensor vec2, *, Scalar beta=1, Scalar alpha=1) -> Tensor(a!)
 Tensor & addr_out(Tensor & out, const Tensor & self, const Tensor & vec1, const Tensor & vec2, Scalar beta, Scalar alpha); // aten::addr.out(Tensor self, Tensor vec1, Tensor vec2, *, Scalar beta=1, Scalar alpha=1, Tensor(a!) out) -> Tensor(a!)
-Tensor affine_grid_generator(const Tensor & theta, IntArrayRef size); // aten::affine_grid_generator(Tensor theta, int[] size) -> Tensor
-Tensor affine_grid_generator_backward(const Tensor & grad, IntArrayRef size); // aten::affine_grid_generator_backward(Tensor grad, int[] size) -> Tensor
+Tensor affine_grid_generator(const Tensor & theta, IntArrayRef size, bool align_corners); // aten::affine_grid_generator(Tensor theta, int[] size, bool align_corners) -> Tensor
+Tensor affine_grid_generator_backward(const Tensor & grad, IntArrayRef size, bool align_corners); // aten::affine_grid_generator_backward(Tensor grad, int[] size, bool align_corners) -> Tensor
 Tensor all(const Tensor & self, int64_t dim, bool keepdim); // aten::all.dim(Tensor self, int dim, bool keepdim=False) -> Tensor
 Tensor & all_out(Tensor & out, const Tensor & self, int64_t dim, bool keepdim); // aten::all.out(Tensor self, int dim, bool keepdim=False, *, Tensor(a!) out) -> Tensor(a!)
 bool allclose(const Tensor & self, const Tensor & other, double rtol, double atol, bool equal_nan); // aten::allclose(Tensor self, Tensor other, float rtol=1e-05, float atol=1e-08, bool equal_nan=False) -> bool
@@ -97,6 +97,12 @@ Tensor bincount(const Tensor & self, const Tensor & weights, int64_t minlength);
 Tensor bitwise_not(const Tensor & self); // aten::bitwise_not(Tensor self) -> Tensor
 Tensor & bitwise_not_(Tensor & self); // aten::bitwise_not_(Tensor(a!) self) -> Tensor(a!)
 Tensor & bitwise_not_out(Tensor & out, const Tensor & self); // aten::bitwise_not.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+Tensor logical_not(const Tensor & self); // aten::logical_not(Tensor self) -> Tensor
+Tensor & logical_not_(Tensor & self); // aten::logical_not_(Tensor(a!) self) -> Tensor(a!)
+Tensor & logical_not_out(Tensor & out, const Tensor & self); // aten::logical_not.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
+Tensor logical_xor(const Tensor & self, const Tensor & other); // aten::logical_xor(Tensor self, Tensor other) -> Tensor
+Tensor & logical_xor_(Tensor & self, const Tensor & other); // aten::logical_xor_(Tensor(a!) self, Tensor other) -> Tensor(a!)
+Tensor & logical_xor_out(Tensor & out, const Tensor & self, const Tensor & other); // aten::logical_xor.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
 Tensor blackman_window(int64_t window_length, const TensorOptions & options); // aten::blackman_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
 Tensor blackman_window(int64_t window_length, bool periodic, const TensorOptions & options); // aten::blackman_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
 Tensor bmm(const Tensor & self, const Tensor & mat2); // aten::bmm(Tensor self, Tensor mat2) -> Tensor
@@ -122,6 +128,8 @@ bool cudnn_is_acceptable(const Tensor & self); // aten::cudnn_is_acceptable(Tens
 Tensor constant_pad_nd(const Tensor & self, IntArrayRef pad, Scalar value); // aten::constant_pad_nd(Tensor self, int[] pad, Scalar value=0) -> Tensor
 Tensor contiguous(const Tensor & self, MemoryFormat memory_format); // aten::contiguous(Tensor self, *, MemoryFormat memory_format=contiguous_format) -> Tensor
 Tensor convolution(const Tensor & input, const Tensor & weight, const Tensor & bias, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding, int64_t groups); // aten::convolution(Tensor input, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding, int groups) -> Tensor
+Tensor convolution_overrideable(const Tensor & input, const Tensor & weight, const Tensor & bias, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding, int64_t groups); // aten::convolution_overrideable(Tensor input, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding, int groups) -> Tensor
+std::tuple<Tensor,Tensor,Tensor> convolution_backward_overrideable(const Tensor & grad_output, const Tensor & input, const Tensor & weight, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding, int64_t groups, std::array<bool,3> output_mask); // aten::convolution_backward_overrideable(Tensor grad_output, Tensor input, Tensor weight, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding, int groups, bool[3] output_mask) -> (Tensor grad_input, Tensor grad_weight, Tensor grad_bias)
 Tensor _convolution(const Tensor & input, const Tensor & weight, const Tensor & bias, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding, int64_t groups, bool benchmark, bool deterministic, bool cudnn_enabled); // aten::_convolution(Tensor input, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding, int groups, bool benchmark, bool deterministic, bool cudnn_enabled) -> Tensor
 Tensor _convolution_nogroup(const Tensor & input, const Tensor & weight, const Tensor & bias, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding); // aten::_convolution_nogroup(Tensor input, Tensor weight, Tensor? bias, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding) -> Tensor
 std::tuple<Tensor,Tensor,Tensor> _convolution_double_backward(const Tensor & ggI, const Tensor & ggW, const Tensor & ggb, const Tensor & gO, const Tensor & weight, const Tensor & self, IntArrayRef stride, IntArrayRef padding, IntArrayRef dilation, bool transposed, IntArrayRef output_padding, int64_t groups, bool benchmark, bool deterministic, bool cudnn_enabled, std::array<bool,3> output_mask); // aten::_convolution_double_backward(Tensor? ggI, Tensor? ggW, Tensor? ggb, Tensor gO, Tensor weight, Tensor self, int[] stride, int[] padding, int[] dilation, bool transposed, int[] output_padding, int groups, bool benchmark, bool deterministic, bool cudnn_enabled, bool[3] output_mask) -> (Tensor, Tensor, Tensor)
@@ -192,6 +200,7 @@ Tensor _embedding_bag_dense_backward(const Tensor & grad, const Tensor & indices
 Tensor _embedding_bag_per_sample_weights_backward(const Tensor & grad, const Tensor & weight, const Tensor & indices, const Tensor & offsets, const Tensor & offset2bag, int64_t mode); // aten::_embedding_bag_per_sample_weights_backward(Tensor grad, Tensor weight, Tensor indices, Tensor offsets, Tensor offset2bag, int mode) -> Tensor
 Tensor empty(IntArrayRef size, const TensorOptions & options, c10::optional<MemoryFormat> memory_format); // aten::empty.memory_format(int[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=None) -> Tensor
 Tensor _empty_affine_quantized(IntArrayRef size, const TensorOptions & options, double scale, int64_t zero_point, c10::optional<MemoryFormat> memory_format); // aten::_empty_affine_quantized(int[] size, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, float scale=1, int zero_point=0, MemoryFormat? memory_format=contiguous_format) -> Tensor
+Tensor _empty_per_channel_affine_quantized_like(const Tensor & self, const Tensor & zero_points, IntArrayRef size, IntArrayRef axis, const TensorOptions & options, c10::optional<MemoryFormat> memory_format); // aten::_empty_per_channel_affine_quantized_like(Tensor self, Tensor zero_points, int[] size, int[] axis, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None, MemoryFormat? memory_format=contiguous_format) -> Tensor
 Tensor & resize_(Tensor & self, IntArrayRef size); // aten::resize_(Tensor(a!) self, int[] size) -> Tensor(a!)
 Tensor & empty_out(Tensor & out, IntArrayRef size, c10::optional<MemoryFormat> memory_format); // aten::empty.out(int[] size, *, MemoryFormat? memory_format=None, Tensor(a!) out) -> Tensor(a!)
 Tensor empty_like(const Tensor & self); // aten::empty_like(Tensor self) -> Tensor
@@ -229,11 +238,11 @@ Tensor & full_out(Tensor & out, IntArrayRef size, Scalar fill_value); // aten::f
 Tensor full_like(const Tensor & self, Scalar fill_value); // aten::full_like(Tensor self, Scalar fill_value) -> Tensor
 Tensor full_like(const Tensor & self, Scalar fill_value, const TensorOptions & options); // aten::full_like.dtype(Tensor self, Scalar fill_value, *, ScalarType dtype, Layout layout, Device device, bool pin_memory=False) -> Tensor
 Tensor from_file(std::string filename, c10::optional<bool> shared, c10::optional<int64_t> size, const TensorOptions & options); // aten::from_file(str filename, bool? shared=None, int? size=0, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
-Tensor grid_sampler(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode); // aten::grid_sampler(Tensor input, Tensor grid, int interpolation_mode, int padding_mode) -> Tensor
-Tensor grid_sampler_2d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode); // aten::grid_sampler_2d(Tensor input, Tensor grid, int interpolation_mode, int padding_mode) -> Tensor
-std::tuple<Tensor,Tensor> grid_sampler_2d_backward(const Tensor & grad_output, const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode); // aten::grid_sampler_2d_backward(Tensor grad_output, Tensor input, Tensor grid, int interpolation_mode, int padding_mode) -> (Tensor, Tensor)
-Tensor grid_sampler_3d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode); // aten::grid_sampler_3d(Tensor input, Tensor grid, int interpolation_mode, int padding_mode) -> Tensor
-std::tuple<Tensor,Tensor> grid_sampler_3d_backward(const Tensor & grad_output, const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode); // aten::grid_sampler_3d_backward(Tensor grad_output, Tensor input, Tensor grid, int interpolation_mode, int padding_mode) -> (Tensor, Tensor)
+Tensor grid_sampler(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners); // aten::grid_sampler(Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> Tensor
+Tensor grid_sampler_2d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners); // aten::grid_sampler_2d(Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> Tensor
+std::tuple<Tensor,Tensor> grid_sampler_2d_backward(const Tensor & grad_output, const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners); // aten::grid_sampler_2d_backward(Tensor grad_output, Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> (Tensor, Tensor)
+Tensor grid_sampler_3d(const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners); // aten::grid_sampler_3d(Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> Tensor
+std::tuple<Tensor,Tensor> grid_sampler_3d_backward(const Tensor & grad_output, const Tensor & input, const Tensor & grid, int64_t interpolation_mode, int64_t padding_mode, bool align_corners); // aten::grid_sampler_3d_backward(Tensor grad_output, Tensor input, Tensor grid, int interpolation_mode, int padding_mode, bool align_corners) -> (Tensor, Tensor)
 Tensor hann_window(int64_t window_length, const TensorOptions & options); // aten::hann_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
 Tensor hann_window(int64_t window_length, bool periodic, const TensorOptions & options); // aten::hann_window.periodic(int window_length, bool periodic, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
 Tensor hamming_window(int64_t window_length, const TensorOptions & options); // aten::hamming_window(int window_length, *, ScalarType? dtype=None, Layout? layout=None, Device? device=None, bool? pin_memory=None) -> Tensor
@@ -482,7 +491,7 @@ Tensor & sinh_out(Tensor & out, const Tensor & self); // aten::sinh.out(Tensor s
 Tensor detach(const Tensor & self); // aten::detach(Tensor self) -> Tensor
 Tensor & detach_(Tensor & self); // aten::detach_(Tensor(a!) self) -> Tensor(a!)
 int64_t size(const Tensor & self, int64_t dim); // aten::size.int(Tensor self, int dim) -> int
-Tensor slice(const Tensor & self, int64_t dim, int64_t start, int64_t end, int64_t step); // aten::slice(Tensor(a) self, int dim=0, int start=0, int end=9223372036854775807, int step=1) -> Tensor(a)
+Tensor slice(const Tensor & self, int64_t dim, int64_t start, int64_t end, int64_t step); // aten::slice.Tensor(Tensor(a) self, int dim=0, int start=0, int end=9223372036854775807, int step=1) -> Tensor(a)
 std::tuple<Tensor,Tensor> slogdet(const Tensor & self); // aten::slogdet(Tensor self) -> (Tensor sign, Tensor logabsdet)
 Tensor smm(const Tensor & self, const Tensor & mat2); // aten::smm(Tensor self, Tensor mat2) -> Tensor
 Tensor softmax(const Tensor & self, int64_t dim, c10::optional<ScalarType> dtype); // aten::softmax(Tensor self, int dim, ScalarType? dtype=None) -> Tensor
@@ -495,7 +504,7 @@ Tensor & _sparse_div_scalar_out(Tensor & out, const Tensor & self, Scalar other)
 Tensor & _sparse_mul_out(Tensor & out, const Tensor & self, const Tensor & other); // aten::_sparse_mul.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
 Tensor & _sparse_mul_zerodim_out(Tensor & out, const Tensor & self, const Tensor & other); // aten::_sparse_mul_zerodim.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
 Tensor & _sparse_mul_scalar_out(Tensor & out, const Tensor & self, Scalar other); // aten::_sparse_mul_scalar.out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
-std::vector<Tensor> split(const Tensor & self, int64_t split_size, int64_t dim); // aten::split(Tensor(a) self, int split_size, int dim=0) -> Tensor(a)[]
+std::vector<Tensor> split(const Tensor & self, int64_t split_size, int64_t dim); // aten::split.Tensor(Tensor(a) self, int split_size, int dim=0) -> Tensor(a)[]
 std::vector<Tensor> split_with_sizes(const Tensor & self, IntArrayRef split_sizes, int64_t dim); // aten::split_with_sizes(Tensor self, int[] split_sizes, int dim=0) -> Tensor[]
 Tensor squeeze(const Tensor & self); // aten::squeeze(Tensor(a) self) -> Tensor(a)
 Tensor squeeze(const Tensor & self, int64_t dim); // aten::squeeze.dim(Tensor(a) self, int dim) -> Tensor(a)
@@ -660,8 +669,11 @@ Tensor dequantize(const Tensor & self); // aten::dequantize(Tensor self) -> Tens
 Tensor _dequantize_linear(const Tensor & self, double scale, int64_t zero_point, ScalarType dtype); // aten::_dequantize_linear(Tensor self, float scale, int zero_point, ScalarType dtype) -> Tensor
 double q_scale(const Tensor & self); // aten::q_scale(Tensor self) -> float
 int64_t q_zero_point(const Tensor & self); // aten::q_zero_point(Tensor self) -> int
+Tensor q_per_channel_scales(const Tensor & self); // aten::q_per_channel_scales(Tensor self) -> Tensor
+Tensor q_per_channel_zero_points(const Tensor & self); // aten::q_per_channel_zero_points(Tensor self) -> Tensor
 Tensor int_repr(const Tensor & self); // aten::int_repr(Tensor self) -> Tensor
 Tensor _per_tensor_affine_qtensor(const Tensor & self, double scale, int64_t zero_point); // aten::_per_tensor_affine_qtensor(Tensor self, float scale, int zero_point) -> Tensor
+Tensor _per_channel_affine_qtensor(const Tensor & self, const Tensor & scale, const Tensor & zero_point, IntArrayRef axis); // aten::_per_channel_affine_qtensor(Tensor self, Tensor scale, Tensor zero_point, int[] axis) -> Tensor
 QScheme qscheme(const Tensor & self); // aten::qscheme(Tensor self) -> QScheme
 Tensor fake_quantize_per_tensor_affine(const Tensor & self, double scale, int64_t zero_point, int64_t quant_min, int64_t quant_max); // aten::fake_quantize_per_tensor_affine(Tensor self, float scale, int zero_point, int quant_min, int quant_max) -> Tensor
 Tensor fake_quantize_per_tensor_affine_backward(const Tensor & grad, const Tensor & self, double scale, int64_t zero_point, int64_t quant_min, int64_t quant_max); // aten::fake_quantize_per_tensor_affine_backward(Tensor grad, Tensor self, float scale, int zero_point, int quant_min, int quant_max) -> Tensor
@@ -764,13 +776,11 @@ Tensor & tril_(Tensor & self, int64_t diagonal); // aten::tril_(Tensor(a!) self,
 Tensor & triu_(Tensor & self, int64_t diagonal); // aten::triu_(Tensor(a!) self, int diagonal=0) -> Tensor(a!)
 Tensor & digamma_(Tensor & self); // aten::digamma_(Tensor(a!) self) -> Tensor(a!)
 Tensor & polygamma_(Tensor & self, int64_t n); // aten::polygamma_(Tensor(a!) self, int n) -> Tensor(a!)
-Tensor & erfinv_(Tensor & self); // aten::erfinv_(Tensor(a!) self) -> Tensor(a!)
 Tensor & renorm_(Tensor & self, Scalar p, int64_t dim, Scalar maxnorm); // aten::renorm_(Tensor(a!) self, Scalar p, int dim, Scalar maxnorm) -> Tensor(a!)
 Tensor & pow_(Tensor & self, Scalar exponent); // aten::pow_.Scalar(Tensor(a!) self, Scalar exponent) -> Tensor(a!)
 Tensor & pow_(Tensor & self, const Tensor & exponent); // aten::pow_.Tensor(Tensor(a!) self, Tensor exponent) -> Tensor(a!)
 Tensor & lerp_(Tensor & self, const Tensor & end, Scalar weight); // aten::lerp_.Scalar(Tensor(a!) self, Tensor end, Scalar weight) -> Tensor(a!)
 Tensor & lerp_(Tensor & self, const Tensor & end, const Tensor & weight); // aten::lerp_.Tensor(Tensor(a!) self, Tensor end, Tensor weight) -> Tensor(a!)
-Tensor & sign_(Tensor & self); // aten::sign_(Tensor(a!) self) -> Tensor(a!)
 Tensor & fmod_(Tensor & self, Scalar other); // aten::fmod_.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)
 Tensor & fmod_(Tensor & self, const Tensor & other); // aten::fmod_.Tensor(Tensor(a!) self, Tensor other) -> Tensor(a!)
 Tensor & remainder_(Tensor & self, Scalar other); // aten::remainder_.Scalar(Tensor(a!) self, Scalar other) -> Tensor(a!)
@@ -889,6 +899,10 @@ Tensor & polygamma_out(Tensor & out, int64_t n, const Tensor & self); // aten::p
 Tensor polygamma(int64_t n, const Tensor & self); // aten::polygamma(int n, Tensor self) -> Tensor
 Tensor & erfinv_out(Tensor & out, const Tensor & self); // aten::erfinv.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
 Tensor erfinv(const Tensor & self); // aten::erfinv(Tensor self) -> Tensor
+Tensor & erfinv_(Tensor & self); // aten::erfinv_(Tensor(a!) self) -> Tensor(a!)
+Tensor sign(const Tensor & self); // aten::sign(Tensor self) -> Tensor
+Tensor & sign_(Tensor & self); // aten::sign_(Tensor(a!) self) -> Tensor(a!)
+Tensor & sign_out(Tensor & out, const Tensor & self); // aten::sign.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
 Tensor dist(const Tensor & self, const Tensor & other, Scalar p); // aten::dist(Tensor self, Tensor other, Scalar p=2) -> Tensor
 Tensor & atan2_out(Tensor & out, const Tensor & self, const Tensor & other); // aten::atan2.out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
 Tensor atan2(const Tensor & self, const Tensor & other); // aten::atan2(Tensor self, Tensor other) -> Tensor
@@ -898,8 +912,6 @@ Tensor lerp(const Tensor & self, const Tensor & end, Scalar weight); // aten::le
 Tensor lerp(const Tensor & self, const Tensor & end, const Tensor & weight); // aten::lerp.Tensor(Tensor self, Tensor end, Tensor weight) -> Tensor
 Tensor & histc_out(Tensor & out, const Tensor & self, int64_t bins, Scalar min, Scalar max); // aten::histc.out(Tensor self, int bins=100, Scalar min=0, Scalar max=0, *, Tensor(a!) out) -> Tensor(a!)
 Tensor histc(const Tensor & self, int64_t bins, Scalar min, Scalar max); // aten::histc(Tensor self, int bins=100, Scalar min=0, Scalar max=0) -> Tensor
-Tensor & sign_out(Tensor & out, const Tensor & self); // aten::sign.out(Tensor self, *, Tensor(a!) out) -> Tensor(a!)
-Tensor sign(const Tensor & self); // aten::sign(Tensor self) -> Tensor
 Tensor & fmod_out(Tensor & out, const Tensor & self, Scalar other); // aten::fmod.Scalar_out(Tensor self, Scalar other, *, Tensor(a!) out) -> Tensor(a!)
 Tensor fmod(const Tensor & self, Scalar other); // aten::fmod.Scalar(Tensor self, Scalar other) -> Tensor
 Tensor & fmod_out(Tensor & out, const Tensor & self, const Tensor & other); // aten::fmod.Tensor_out(Tensor self, Tensor other, *, Tensor(a!) out) -> Tensor(a!)
