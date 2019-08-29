@@ -34,13 +34,13 @@ Pod::Spec.new do |s|
     #     ss.vendored_libraries = 'install/lib/libtorch.a'
     #     ss.libraries = ['c++', 'stdc++']
     # end
-    # s.user_target_xcconfig = {
-    #     'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
-    #     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-    #     'CLANG_CXX_LIBRARY' => 'libc++'
-    # }
-    # s.pod_target_xcconfig = { 
-    #     'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
-    # }
+    s.user_target_xcconfig = {
+        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
+        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+        'CLANG_CXX_LIBRARY' => 'libc++'
+    }
+    s.pod_target_xcconfig = { 
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
+    }
  
 end
