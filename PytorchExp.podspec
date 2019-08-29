@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
-    s.source           = { :git => 'https://github.com/xta0/Pytorch-iOS.git', :branch => "master" }
+    s.source           = { :http => 'https://xta0.me/resource/libtorch.tar.gz' }
     s.summary          = 'Pytorch experimental Cocoapods'
     s.description      = <<-DESC
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
@@ -32,8 +32,8 @@ Pod::Spec.new do |s|
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.pod_target_xcconfig = { 
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
-        'VALID_ARCHS' => 'armv7 armv7s arm64' }
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
+    }
     s.module_name='PytorchExp'
     s.module_map = 'src/framework.modulemap'
     s.library = ['c++', 'stdc++']
