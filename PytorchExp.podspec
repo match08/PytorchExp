@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
         ss.header_mappings_dir = 'install/include/'
         ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
         ss.vendored_libraries = 'install/lib/libtorch.a'
-        ss.libraries = 'c++', 'stdc++',
+        ss.libraries = ['c++', 'stdc++']
     end
     s.user_target_xcconfig = {
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
         'VALID_ARCHS' => 'armv7 armv7s arm64' }
     s.module_name='PytorchExp'
     s.module_spec = 'src/framework.modulemap'
-    s.library = 'c++', 'stdc++'
+    s.library = ['c++', 'stdc++']
 end
