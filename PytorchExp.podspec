@@ -11,13 +11,16 @@ Pod::Spec.new do |s|
     intended to be used directly.
     DESC
 
-    s.ios.deployment_target = '10.3'
-    # s.source_files          = 'src/*.{h,cpp,cc}'
-    # s.public_header_files   = ['src/PytorchExp.h']
-    # # s.header_mappings_dir = 'install/include/'
-    # s.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
-    s.ios.vendored_libraries = 'install/lib/libtorch.a'
-    # s.libraries = ['c++', 'stdc++']
+    s.ios.deployment_target     = '10.3'
+    s.source_files              = 'src/*.{h,cpp,cc}'
+    s.public_header_files       = ['src/PytorchExp.h']
+    s.header_mappings_dir       = 'install/include/'
+    s.preserve_paths            = 'install/include/**/*.{h,cpp,cc,c}' 
+    s.ios.vendored_libraries    = 'install/lib/libtorch.a'
+    s.libraries                 = ['c++', 'stdc++']
+    s.module_name               = 'PytorchExp'
+    s.module_map                = 'src/framework.modulemap'
+    s.library                   = ['c++', 'stdc++']
 
 
 
