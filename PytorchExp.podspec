@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     s.version          = '0.0.1'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
-    s.homepage         = 'https://github.com/xta0/Pytorch-iOS'
+    s.homepage         = 'https://github.com/xta0/PytorchExp'
     s.source           = { :http => 'https://xta0.me/resource/libtorch.zip' }
     s.summary          = 'Pytorch experimental Cocoapods'
     s.description      = <<-DESC
@@ -12,20 +12,29 @@ Pod::Spec.new do |s|
     DESC
 
     s.ios.deployment_target = '10.3'
-    s.default_subspec = 'Core'
+    s.source_files          = 'src/*.{h,cpp,cc}'
+    s.public_header_files   = ['src/PytorchExp.h']
+    # s.header_mappings_dir = 'install/include/'
+    s.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
+    s.vendored_libraries = 'install/lib/libtorch.a'
+    s.libraries = ['c++', 'stdc++']
+
+
+
+
+    # s.default_subspec = 'Core'
+    # s.subspec 'Core' do |ss|
+    #     ss.dependency 'PytorchExp/Libtorch'
+    #     ss.source_files = 'src/*.{h,cpp,cc}'
+    #     ss.public_header_files = ['src/PytorchExp.h']
+    # end
     
-    s.subspec 'Core' do |ss|
-        ss.dependency 'PytorchExp/Libtorch'
-        ss.source_files = 'src/*.{h,cpp,cc}'
-        ss.public_header_files = ['src/PytorchExp.h']
-    end
-    
-    s.subspec 'Libtorch' do |ss|
-        ss.header_mappings_dir = 'install/include/'
-        ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
-        ss.vendored_libraries = 'install/lib/libtorch.a'
-        ss.libraries = ['c++', 'stdc++']
-    end
+    # s.subspec 'Libtorch' do |ss|
+    #     ss.header_mappings_dir = 'install/include/'
+    #     ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
+    #     ss.vendored_libraries = 'install/lib/libtorch.a'
+    #     ss.libraries = ['c++', 'stdc++']
+    # end
     s.user_target_xcconfig = {
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
