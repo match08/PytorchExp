@@ -12,12 +12,12 @@ Pod::Spec.new do |s|
     DESC
 
     s.ios.deployment_target = '10.3'
-    s.source_files          = 'src/*.{h,cpp,cc}'
-    s.public_header_files   = ['src/PytorchExp.h']
-    # s.header_mappings_dir = 'install/include/'
+    s.source_files          = 'PytorchExp/src/*.{h,cpp,cc}'
+    s.public_header_files   = ['Pytorch/src/PytorchExp.h']
+    # # s.header_mappings_dir = 'install/include/'
     s.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
     s.vendored_libraries = 'install/lib/libtorch.a'
-    s.libraries = ['c++', 'stdc++']
+    # s.libraries = ['c++', 'stdc++']
 
 
 
