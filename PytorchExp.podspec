@@ -12,11 +12,11 @@ Pod::Spec.new do |s|
     DESC
 
     s.ios.deployment_target = '10.3'
-    s.source_files          = 'src/*.{h,cpp,cc}'
-    s.public_header_files   = ['src/PytorchExp.h']
+    # s.source_files          = 'src/*.{h,cpp,cc}'
+    # s.public_header_files   = ['src/PytorchExp.h']
     # # s.header_mappings_dir = 'install/include/'
-    s.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
-    s.vendored_libraries = 'install/lib/libtorch.a'
+    # s.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
+    s.ios.vendored_libraries = 'install/lib/libtorch.a'
     # s.libraries = ['c++', 'stdc++']
 
 
@@ -35,15 +35,15 @@ Pod::Spec.new do |s|
     #     ss.vendored_libraries = 'install/lib/libtorch.a'
     #     ss.libraries = ['c++', 'stdc++']
     # end
-    s.user_target_xcconfig = {
-        'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
-        'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
-        'CLANG_CXX_LIBRARY' => 'libc++'
-    }
-    s.pod_target_xcconfig = { 
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
-        'VALID_ARCHS' => 'armv7 armv7s arm64' }
-    s.module_name='PytorchExp'
-    s.module_map = 'src/framework.modulemap'
-    s.library = ['c++', 'stdc++']
+    # s.user_target_xcconfig = {
+    #     'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
+    #     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+    #     'CLANG_CXX_LIBRARY' => 'libc++'
+    # }
+    # s.pod_target_xcconfig = { 
+    #     'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
+    #     'VALID_ARCHS' => 'armv7 armv7s arm64' }
+    # s.module_name='PytorchExp'
+    # s.module_map = 'src/framework.modulemap'
+    # s.library = ['c++', 'stdc++']
 end
