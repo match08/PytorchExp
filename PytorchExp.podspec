@@ -1,4 +1,8 @@
 Pod::Spec.new do |s|
+
+
+    puts "running cocoapods"
+
     s.name             = 'PytorchExp'
     s.version          = '0.0.1'
     s.authors          = 'xta0'
