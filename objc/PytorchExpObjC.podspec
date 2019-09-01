@@ -1,0 +1,35 @@
+Pod::Spec.new do |s|
+    s.name             = 'PytorchExpObjC'
+    s.version          = '0.0.1'
+    s.authors          = 'xta0'
+    s.license          = { :type => 'MIT' }
+    s.homepage         = 'https://github.com/xta0/PytorchExpObjC.git'
+    s.source           = { :git => 'https://github.com/xta0/PytorchExp.git', :branch => "master" }
+    s.summary          = 'PytorchExp for Objective-C'
+    s.description      = <<-DESC
+   Objective-C wrapper of PytorchExp
+                         DESC
+  
+    s.ios.deployment_target = '10.3'
+    s.module_name = 'PytorchExpObjC'
+    s.static_framework = true
+
+    objc_dir = 'ios/objc/'
+    s.public_header_files = objc_dir + 'apis/*.h'
+    s.source_files = [ objc_dir+'apis/*.{h,m,mm}', objc_dir+'src/*.{h,m,mm}' ]
+    s.module_map = objc_dir+'apis/framework.modulemap'
+    s.dependency 'PytorchExp'
+    s.pod_target_xcconfig = { 
+      # 'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/PytorchExp/install/include" "${PODS_ROOT}/PytorchExpObjC/apis"',
+      'HEADER_SEARCH_PATHS' => 
+        '"${PODS_ROOT}/PytorchExp/ios/cpp/install/include" ' 
+        '"${PODS_ROOT}/PytorchExpObjC/ios/objc/apis"' 
+      'VALID_ARCHS' => 'x86_64 arm64' 
+    }
+    s.library = 'c++', 'stdc++'
+
+    s.test_spec 'Tests' do |ts| 
+      ts.source_files = objc_dir + 'Tests/*.{h,mm,m}'
+      ts.resources = [ objc_dir + 'Tests/models/*.pt']
+    end
+  end
