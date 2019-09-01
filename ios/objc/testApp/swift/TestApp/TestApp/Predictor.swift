@@ -29,7 +29,12 @@ class Predictor {
             return
         }
         let imageTensor = TorchTensor.new(with: .float, size: [1,3,224,224], data: UnsafeMutablePointer(&data))
-        let imageIValue = TorchIValue.newIValue(with: imageTensor)
+        guard let inputTensor = imageTensor else {
+            completion([])
+            return
+            
+        }
+        let imageIValue = TorchIValue.new(with: inputTensor)
         let outputTensor = self.module?.forward([imageIValue])?.toTensor()
         
         guard let resultTensor = outputTensor else {
@@ -47,8 +52,9 @@ class Predictor {
         let resultCount: UInt = results.size[1].uintValue
         var scores: [Float32] = []
         for index: UInt in 0..<resultCount {
-            let score = results[0][index].item().floatValue
-            scores.append(score)
+            if let score = results[0]?[index]?.item()?.floatValue {
+                scores.append(score)
+            }
         }
         let zippedResults = zip(labels.indices,scores)
         let sortedResults = zippedResults.sorted { $0.1 > $1.1 }.prefix(count)
