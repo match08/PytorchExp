@@ -14,13 +14,16 @@ Pod::Spec.new do |s|
     s.module_name = 'PytorchExpObjC'
     s.static_framework = true
 
-    objc_dir = 'objc/'
+    objc_dir = 'ios/objc/'
     s.public_header_files = objc_dir + 'apis/*.h'
     s.source_files = [ objc_dir+'apis/*.{h,m,mm}', objc_dir+'src/*.{h,m,mm}' ]
     s.module_map = objc_dir+'apis/framework.modulemap'
     s.dependency 'PytorchExp'
+    header = ""
     s.pod_target_xcconfig = { 
-      'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/PytorchExp/install/include" "${PODS_ROOT}/PytorchExpObjC/objc/apis"',
+      'HEADER_SEARCH_PATHS' => 
+      '"${PODS_ROOT}/PytorchExp/install/include" ' + 
+      '"${PODS_ROOT}/PytorchExpObjC/' + objc_dir + 'apis"',
       'VALID_ARCHS' => 'x86_64 arm64' 
     }
     s.library = 'c++', 'stdc++'
