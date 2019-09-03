@@ -32,7 +32,6 @@ class Predictor {
         guard let inputTensor = imageTensor else {
             completion([])
             return
-            
         }
         let imageIValue = TorchIValue.new(with: inputTensor)
         let outputTensor = self.module?.forward([imageIValue])?.toTensor()
