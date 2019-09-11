@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'PytorchExp'
-    s.version          = '0.0.2'
+    s.version          = '0.0.3'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/PytorchExp'
@@ -25,13 +25,15 @@ Pod::Spec.new do |s|
         ss.libraries = ['c++', 'stdc++']
     end
     s.user_target_xcconfig = {
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.pod_target_xcconfig = { 
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
-        'VALID_ARCHS' => 'armv7 armv7s arm64' }
+        'VALID_ARCHS' => 'x86 arm64' 
+    }
+    s.static_framework
     s.module_name='PytorchExp'
     s.module_map = 'src/framework.modulemap'
     s.library = ['c++', 'stdc++']
