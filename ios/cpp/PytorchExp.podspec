@@ -33,7 +33,6 @@ Pod::Spec.new do |s|
     s.pod_target_xcconfig = { 
         'VALID_ARCHS' => 'x86 arm64' 
     }
-    s.static_framework
     s.module_name='PytorchExp'
     s.module_map = 'src/framework.modulemap'
     s.library = ['c++', 'stdc++']
