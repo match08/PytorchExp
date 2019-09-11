@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'PytorchExp'
-    s.version          = '0.0.3'
+    s.version          = '0.0.4'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/PytorchExp'
@@ -10,14 +10,12 @@ Pod::Spec.new do |s|
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
     intended to be used directly.
     DESC
-
     s.default_subspec = 'Core'
     s.subspec 'Core' do |ss|
         ss.dependency 'PytorchExp/Libtorch'
         ss.source_files = 'src/*.{h,cpp,cc}'
         ss.public_header_files = ['src/PytorchExp.h']
     end
-    
     s.subspec 'Libtorch' do |ss|
         ss.header_mappings_dir = 'install/include/'
         ss.preserve_paths = 'install/include/**/*.{h,cpp,cc,c}' 
@@ -25,7 +23,7 @@ Pod::Spec.new do |s|
         ss.libraries = ['c++', 'stdc++']
     end
     s.user_target_xcconfig = {
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"', 
+        'HEADER_SEARCH_PATHS' => '$(inherited)', 
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
