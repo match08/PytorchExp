@@ -31,9 +31,11 @@ Pod::Spec.new do |s|
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.pod_target_xcconfig = { 
-        'VALID_ARCHS' => 'x86 arm64' 
+        'VALID_ARCHS' => 'x86 arm64',
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"',
     }
     s.module_name='PytorchExp'
     s.module_map = 'src/framework.modulemap'
     s.library = ['c++', 'stdc++']
 end
+
