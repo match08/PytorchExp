@@ -23,14 +23,14 @@ Pod::Spec.new do |s|
         ss.libraries = ['c++', 'stdc++']
     end
     s.user_target_xcconfig = {
-        'HEADER_SEARCH_PATHS' => '$(inherited)', 
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"',
         'OTHER_LDFLAGS' => '-force_load "$(PODS_ROOT)/PytorchExp/install/lib/libtorch.a"',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
         'CLANG_CXX_LIBRARY' => 'libc++'
     }
     s.pod_target_xcconfig = { 
         'VALID_ARCHS' => 'x86 arm64',
-        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"',
+        'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
     }
     s.module_name='PytorchExp'
     s.module_map = 'src/framework.modulemap'
