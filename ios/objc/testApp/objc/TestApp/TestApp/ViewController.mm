@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _predictor = [[ImagePredictor alloc]initWithModelPath:[[NSBundle mainBundle] pathForResource:@"resnet18" ofType:@"pt"]];
+    _predictor = [[ImagePredictor alloc]initWithModelPath:[[NSBundle mainBundle] pathForResource:@"model" ofType:@"pt"]];
     UIImage* image = [UIImage imageNamed:@"wolf_400x400.jpg"];
     [_predictor predict:image Completion:^(NSArray<NSDictionary *> * _Nonnull sortedResults) {
         NSLog(@"%@",sortedResults);

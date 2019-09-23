@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'PytorchExp'
-    s.version          = '0.0.6'
+    s.version          = '0.0.7'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/PytorchExp'
@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
         'VALID_ARCHS' => 'x86 arm64 armv7s',
         'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
     }
+    s.frameworks = ['Accelerate']
     s.library = ['c++', 'stdc++']
 end
 

@@ -1,24 +1,24 @@
 PODS:
-  - PytorchExp (0.0.2):
-    - PytorchExp/Core (= 0.0.2)
-  - PytorchExp/Core (0.0.2):
-    - PytorchExp/Libtorch
-  - PytorchExp/Libtorch (0.0.2)
-  - PytorchExpObjC (0.0.1):
-    - PytorchExp
+  - LibTorch (0.0.2):
+    - LibTorch/Core (= 0.0.2)
+  - LibTorch/Core (0.0.2):
+    - LibTorch/Torch
+  - LibTorch/Torch (0.0.2)
+  - PytorchExpObjC (0.0.3):
+    - LibTorch
 
 DEPENDENCIES:
-  - PytorchExpObjC
+  - PytorchExpObjC (~> 0.0.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - PytorchExp
+    - LibTorch
     - PytorchExpObjC
 
 SPEC CHECKSUMS:
-  PytorchExp: f2a1fba0d54f318a782697c6d9a80d0062c8d746
-  PytorchExpObjC: 55eb15e32dd6b37a7cbff0f59348ce27ebdb52ae
+  LibTorch: f4b576069920da1c6d9963ccb3c737529c6cc991
+  PytorchExpObjC: e454b18e8d20d22d601d1ee19eb739356829184d
 
-PODFILE CHECKSUM: e2a7a707d7c90a614453655b6ad5513ccf9c974d
+PODFILE CHECKSUM: 411ca96f13d81b9925e94198343acfb48c190793
 
 COCOAPODS: 1.7.1
