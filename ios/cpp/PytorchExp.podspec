@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
     s.name             = 'PytorchExp'
-    s.version          = '0.0.7'
+    s.version          = '1.3.0'
     s.authors          = 'xta0'
     s.license          = { :type => 'MIT' }
     s.homepage         = 'https://github.com/xta0/PytorchExp'
-    s.source           = { :http => 'http://ossci-ios-build.s3.amazonaws.com/libtorch_ios_nightly_build.zip' }
+    s.source           = { :http => "https://ossci-ios.s3.amazonaws.com/libtorch_ios_#{s.version}.zip" }
     s.summary          = 'Pytorch experimental Cocoapods'
     s.description      = <<-DESC
     An internal-only pod containing the Pytorch C++ code for iOS. This pod is not
@@ -32,7 +32,6 @@ Pod::Spec.new do |s|
         'VALID_ARCHS' => 'x86 arm64 armv7s',
         'HEADER_SEARCH_PATHS' => '$(inherited) "$(PODS_ROOT)/PytorchExp/install/include/"'
     }
-    s.frameworks = ['Accelerate']
     s.library = ['c++', 'stdc++']
 end
 
