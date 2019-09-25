@@ -23,10 +23,6 @@
   return nil;
 }
 
-+ (NSArray<NSNumber*>*)predict:(void*)data dims:(NSArray<NSNumber*>*)dims type:(TensorType)type {
-  return nil;
-}
-
 - (TorchIValue*)forward:(NSArray<TorchIValue*>*)values {
   std::vector<at::IValue> inputs;
   for (TorchIValue* value in values) {
